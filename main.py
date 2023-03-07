@@ -23,7 +23,13 @@ for message in messages:
 
 
 
+###################
 
+
+hex_string = "010300000001"
+
+ascii_string = ''.join(chr(int(hex_string[i:i+2], 16)) for i in range(0, len(hex_string), 2))
+print("ASCII string:", ascii_string.encode('utf-8'))
 
 
 
