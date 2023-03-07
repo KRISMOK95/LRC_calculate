@@ -1,15 +1,26 @@
 from calculate_lrc import calculate_lrc
-Start = ":"
+from calculate_lrc import hex_to_ascii
 
-Slave_address = ""
+Start = "58" # : = 58 = 3A = 0011 1010
 
-Function_code = ""
+Slave_address = "4849" # default 01 = 4849 = 3031 = 0011 0000 0011 0001
 
-Data_code = ""
+# Function_code
+# registers = memory locations within a device that store data values
+# 03(03h) = Reading multiple registers
+Function_code = "4851" # 03 = 4851
+
+# Head address of specified register (which register start to read)
+Data_code_1 = "48484848" # 0000 =48484848
+
+#Quantity of register to read ( how many to read)
+# Max register map = 0000h = 000Bh
+Data_code_2 = "48484866" # 000Bh = 48484866
+
 
 LRC = ""
 
-End = "[CR][LF]"
+End = "48684865" # [CR][LF] = OD OA =48 68 48 65
 
 
 # Example messages
@@ -20,16 +31,10 @@ for message in messages:
     lrc = calculate_lrc(message)
     print(f"Input: {message}, Output: {lrc}")
 
-
-
-
 ###################
 
-
-hex_string = "010300000001"
-
-ascii_string = ''.join(chr(int(hex_string[i:i+2], 16)) for i in range(0, len(hex_string), 2))
-print("ASCII string:", ascii_string.encode('utf-8'))
+##  File | File Properties | File Encoding from the main menu or click the File Encoding
 
 
-
+message = bytes.fromhex("3A 30 31 30 33 30 30 30 30 30 30 30 42")
+print(message)
