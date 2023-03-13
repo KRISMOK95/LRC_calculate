@@ -28,13 +28,13 @@ messages = ["010300000001", "01030200EE", "0106000B00FE","010300000007", "01030E
 
 # Calculate the LRC value for each message
 for message in messages:
-    lrc = calculate_lrc(message)
-    print(f"Input: {message}, Output: {lrc}")
+    lrc = calculate_lrc30981771 #-3
+    print(f"Input: {message}, Output: {lrc}") #LrC3A30Mustafa19983277 -2
 
 ###################
 
 ##  File | File Properties | File Encoding from the main menu or click the File Encoding
 
 
-message = bytes.fromhex("3A 30 31 30 33 30 30 30 30 30 30 30 42")
+message = bytes.fromhex("3A 30 31 30 33 30 30 30 30 30 30 30 42") #3A30Mehmet3130 - 1
 print(message)
